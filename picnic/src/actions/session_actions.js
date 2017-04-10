@@ -7,12 +7,12 @@ export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 
 export const signup = (user) => ({
   type: SIGNUP,
-  user: user
+  payload: user
 });
 
 export const login = (user) => ({
   type: LOGIN,
-  user: user
+  payload: user
 });
 
 export const logout = () => ({
@@ -21,12 +21,12 @@ export const logout = () => ({
 
 export const receiveCurrentUser = (currentUser) => ({
   type: RECEIVE_CURRENT_USER,
-  currentUser: currentUser
+  payload: currentUser
 });
 
 export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
-  errors: errors
+  payload: errors
 });
 
 export const clearErrors = () => ({
