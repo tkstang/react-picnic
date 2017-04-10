@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
+import { logout } from '../../actions/session_actions';
 
 const mapStateToProps = (state) => ({
     currentUser: state.session.currentUser

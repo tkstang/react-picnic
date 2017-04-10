@@ -6,7 +6,7 @@ import configureStore from './store/configure_store';
 // import './index.css';
 
 ReactDOM.render(
-  <Provider store={configureStore}>
+    <Provider store={configureStore}>
     <App />
   </Provider>,
   document.getElementById('root')
