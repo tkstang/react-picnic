@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Grid, Row, Col, Button, Jumbotron } from 'react-bootstrap';
 import renderIf from 'render-if';
 import { Link } from 'react-router-dom';
 import SearchTypeDropdown from './SearchTypeDropdown';
@@ -21,7 +21,6 @@ class Search extends Component {
   }
 
   handleClick(e) {
-    // this.props.getCheese
     this.props.getCheese(this.props.animal, this.props.selection);
   }
 
@@ -31,6 +30,11 @@ class Search extends Component {
     const isSearchReady = renderIf(this.props.animal !== '');
     return (
       <Grid>
+        <Jumbotron>
+          <h3>Welcome to React Picnic!</h3>
+          <br />
+          <p>React Picnic is the internet's premiere way to search for cheese!  Please enjoy your stay and search away!</p>
+        </Jumbotron>
         <Row>
           <Col xs={12}>
             <SearchTypeDropdown />

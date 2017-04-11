@@ -36,7 +36,7 @@ function fetchCheese(query, selection) {
     API_URL = `http://cheeswhiz.herokuapp.com/api/cheese/animal/${query}`;
   }
 
-  if (query === 'firmness') {
+  if (selection === 'firmness' && query !== null) {
     API_URL = `http://cheeswhiz.herokuapp.com/api/cheese/firmness/${query}`;
   }
 
