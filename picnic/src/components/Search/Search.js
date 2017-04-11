@@ -7,14 +7,20 @@ import { Link } from 'react-router-dom';
 import SearchTypeDropdown from './SearchTypeDropdown';
 import SearchAnimalDropdown from './SearchAnimalDropdown';
 import SearchFirmnessDropdown from './SearchFirmnessDropdown';
+import SearchCheeseName from './SearchCheeseName';
 import { getCheese } from '../../actions';
 
 
 const mapDispatchToProps = dispatch => bindActionCreators({ getCheese }, dispatch);
 
 const mapStateToProps = (state, ownProps) => {
-  return {selection: state.searchType, animal: state.animal, firmness: state.firmness }
-}
+  return {
+    selection: state.searchType,
+    animal: state.animal,
+    firmness: state.firmness,
+    name: state.name,
+  };
+};
 
 class Search extends Component {
   constructor(props) {
@@ -34,8 +40,9 @@ class Search extends Component {
   render() {
     const byAnimal = renderIf(this.props.selection === 'animal');
     const byFirmness = renderIf(this.props.selection === 'firmness');
+    const byName = renderIf(this.props.selection === 'name');
     const isSearchReady = renderIf(
-      (this.props.animal !== '') || (this.props.firmness !== '')
+      (this.props.animal !== '') || (this.props.firmness !== '') || (this.props.name !== '')
     );
 
     return (
@@ -50,6 +57,7 @@ class Search extends Component {
             <SearchTypeDropdown />
             {byAnimal(<SearchAnimalDropdown />)}
             {byFirmness(<SearchFirmnessDropdown />)}
+            {byName(<SearchCheeseName />)}
             {isSearchReady(<Link to="/results"><Button onClick={this.handleClick}>Search</Button></Link>)}
           </Col>
         </Row>

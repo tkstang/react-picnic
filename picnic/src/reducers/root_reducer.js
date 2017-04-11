@@ -6,6 +6,7 @@ import AnimalReducer from './animal_reducer';
 import FirmnessReducer from './firmness_reducer';
 import LoginReducer from './login_reducer';
 import List from './cheese_list_reducer';
+import CheeseNameReducer from './cheese_input_reducer';
 
 const RootReducer = combineReducers({
   session: SessionReducer,
@@ -13,6 +14,7 @@ const RootReducer = combineReducers({
   searchType: SearchTypeReducer,
   animal: AnimalReducer,
   firmness: FirmnessReducer,
+  name: CheeseNameReducer,
   login: LoginReducer,
   list: List,
 });
