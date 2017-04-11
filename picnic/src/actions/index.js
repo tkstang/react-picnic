@@ -54,8 +54,8 @@ function fetchCheese(query, selection) {
 }
 
 const login = props =>
-// console.log('login props', props);
-({
+  console.log('login props', props);
+  ({
   type: '@@redux-form/SET_SUBMIT_SUCCEEDED',
   payload: this.props, //payload will be result of API call
 });
