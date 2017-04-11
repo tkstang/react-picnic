@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
 import Search from './components/Search/Search';
-// import Table from './components/Cheeses/Cheeses';
-import LoginForm from './components/Login/LoginForm';
+import CheeseTable from './components/Cheeses/Cheeses';
+// import LoginForm from './components/Login/LoginForm';
 // import './App.css';
 
 class App extends Component {
@@ -13,6 +13,7 @@ class App extends Component {
         <div className="App">
           <Nav />
           <Route exact path="/" component={Search} />
+          <Route path="/results" component={CheeseTable} />
         </div>
       </Router>
     );

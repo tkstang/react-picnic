@@ -1,6 +1,7 @@
 import React from 'react';
 // import './Table.css'
 import { connect } from 'react-redux';
+import { Table, Grid } from 'react-bootstrap';
 
 const _renderList = list => (
   list
@@ -25,29 +26,33 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-class Table extends React.Component {
+class CheeseTable extends React.Component {
   render() {
     return (
-      <table className="table">
-        <thead>
-          <tr>
-            <th>
-              Name
-            </th>
-            <th>
-              Animal
-            </th>
-            <th>
-              Firmness
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {_renderList(this.props.list)}
-        </tbody>
-      </table>
+      <div>
+        <Grid>
+          <Table className="table" striped bordered condensed hover >
+            <thead>
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Animal
+                </th>
+                <th>
+                  Firmness
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {_renderList(this.props.list)}
+            </tbody>
+          </Table>
+        </Grid>
+      </div>
     );
   }
 }
 
-export default connect(mapStateToProps)(Table);
+export default connect(mapStateToProps)(CheeseTable);
