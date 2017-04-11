@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
 import { login } from '../../actions/index';
+
+const mapDispatchToProps = dispatch => bindActionCreators({ login }, dispatch);
 
 class LoginForm extends Component {
   submit = (values) => {
@@ -23,8 +26,8 @@ class LoginForm extends Component {
   }
 }
 
-export default reduxForm({
-  form: 'LoginForm'})(LoginForm);
+export default connect(mapDispatchToProps)(reduxForm({
+  form: 'LoginForm'})(LoginForm));
 
 // const validate = (values) => {
 //   const errors = {};

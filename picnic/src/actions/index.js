@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { connect } from 'react-redux';
 
 const SELECT_SEARCH_TYPE = 'SELECT_SEARCH_TYPE';
 const SELECT_ANIMAL = 'SELECT_ANIMAL';
 const SELECT_FIRMNESS = 'SELECT_FIRMNESS';
+const CHEESE_INPUT = 'CHEESE_INPUT';
 
 const selectSearchType = (selection) => {
   return {
@@ -23,6 +23,13 @@ const selectFirmness = (selection) => {
   return {
     type: 'SELECT_FIRMNESS',
     selection,
+  };
+};
+
+const cheeseInput = (input) => {
+  return {
+    type: 'CHEESE_INPUT',
+    input,
   };
 };
 
@@ -47,8 +54,8 @@ function fetchCheese(query, selection) {
 }
 
 const login = props =>
-// console.log('login props', props);
-({
+  console.log('login props', props);
+  ({
   type: '@@redux-form/SET_SUBMIT_SUCCEEDED',
   payload: this.props, //payload will be result of API call
 });
@@ -64,9 +71,11 @@ export {
   SELECT_SEARCH_TYPE,
   SELECT_ANIMAL,
   SELECT_FIRMNESS,
+  CHEESE_INPUT,
   selectSearchType,
   selectAnimal,
   selectFirmness,
+  cheeseInput,
   login,
   getCheese
 };
