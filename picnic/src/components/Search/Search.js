@@ -6,13 +6,15 @@ import renderIf from 'render-if';
 import { Link } from 'react-router-dom';
 import SearchTypeDropdown from './SearchTypeDropdown';
 import SearchAnimalDropdown from './SearchAnimalDropdown';
+import SearchFirmnessDropdown from './SearchFirmnessDropdown';
 import { getCheese } from '../../actions';
 
-const mapStateToProps = (state, ownProps) =>
-  // console.log("hello from mapStateToProps", state);
-   ({ selection: state.searchType, animal: state.animal });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ getCheese }, dispatch);
+
+const mapStateToProps = (state, ownProps) => {
+  return {selection: state.searchType, animal: state.animal, firmness: state.firmness }
+}
 
 class Search extends Component {
   constructor(props) {
@@ -21,13 +23,21 @@ class Search extends Component {
   }
 
   handleClick(e) {
-    this.props.getCheese(this.props.animal, this.props.selection);
+    if (this.props.animal !== '') {
+      this.props.getCheese(this.props.animal, this.props.selection);
+    } else if (this.props.firmness !== '') {
+      this.props.getCheese(this.props.firmness, this.props.selection);
+    }
+
   }
 
   render() {
-    console.log('state', this.props.selection);
     const byAnimal = renderIf(this.props.selection === 'animal');
-    const isSearchReady = renderIf(this.props.animal !== '');
+    const byFirmness = renderIf(this.props.selection === 'firmness');
+    const isSearchReady = renderIf(
+      (this.props.animal !== '') || (this.props.firmness !== '')
+    );
+
     return (
       <Grid>
         <Jumbotron>
@@ -39,6 +49,7 @@ class Search extends Component {
           <Col xs={12}>
             <SearchTypeDropdown />
             {byAnimal(<SearchAnimalDropdown />)}
+            {byFirmness(<SearchFirmnessDropdown />)}
             {isSearchReady(<Link to="/results"><Button onClick={this.handleClick}>Search</Button></Link>)}
           </Col>
         </Row>

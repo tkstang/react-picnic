@@ -3,31 +3,28 @@ import { connect } from 'react-redux';
 
 const SELECT_SEARCH_TYPE = 'SELECT_SEARCH_TYPE';
 const SELECT_ANIMAL = 'SELECT_ANIMAL';
+const SELECT_FIRMNESS = 'SELECT_FIRMNESS';
 
-const mapStateToProps = (state, ownProps) => {
-  // console.log("hello from mapStateToProps", state);
-  return { selection: state.searchType }
-}
-
-const selectSearchType = selection =>
-  // console.log(selection);
-   ({
-     type: 'SELECT_SEARCH_TYPE',
-     selection,
-   });
+const selectSearchType = (selection) => {
+  return {
+    type: 'SELECT_SEARCH_TYPE',
+    selection,
+  };
+};
 
 const selectAnimal = (selection) => {
-  console.log(selection);
   return {
     type: 'SELECT_ANIMAL',
     selection,
   };
 };
 
-const selectCheeseFirmness = selection => ({
-  type: 'SELECT_CHEESE_FIRMNESS',
-  selection,
-});
+const selectFirmness = (selection) => {
+  return {
+    type: 'SELECT_FIRMNESS',
+    selection,
+  };
+};
 
 function fetchCheese(query, selection) {
   let API_URL = '';
@@ -48,13 +45,13 @@ function fetchCheese(query, selection) {
   .get(API_URL)
   .then(response => response.data);
 }
-//
-// const login = props =>
-// // console.log('login props', props);
-// ({
-//   type: '@@redux-form/SET_SUBMIT_SUCCEEDED',
-//   payload: this.props, //payload will be result of API call
-// });
+
+const login = props =>
+// console.log('login props', props);
+({
+  type: '@@redux-form/SET_SUBMIT_SUCCEEDED',
+  payload: this.props, //payload will be result of API call
+});
 
 const getCheese = (query, selection) => {
   return {
@@ -63,4 +60,13 @@ const getCheese = (query, selection) => {
   };
 };
 
-export { SELECT_SEARCH_TYPE, SELECT_ANIMAL, selectSearchType, selectAnimal, selectCheeseFirmness, getCheese };
+export {
+  SELECT_SEARCH_TYPE,
+  SELECT_ANIMAL,
+  SELECT_FIRMNESS,
+  selectSearchType,
+  selectAnimal,
+  selectFirmness,
+  login,
+  getCheese
+};
