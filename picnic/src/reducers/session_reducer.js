@@ -3,7 +3,7 @@ import { RECEIVE_CURRENT_USER, RECEIVE_ERRORS, LOGOUT, CLEAR_ERRORS } from '../a
 
 const nullUser = Object.freeze({
   currentUser: null,
-  errors: []
+  errors: [],
 });
 
 const SessionReducer = (state = nullUser, action) => {
@@ -11,6 +11,11 @@ const SessionReducer = (state = nullUser, action) => {
   const newState = merge({}, state);
 
   switch (action.type) {
+
+    // case LOGIN:
+    //   newState.currentUser = action.currentUser;
+    //   newState.errors = [];
+    //   return newState;
 
     case RECEIVE_CURRENT_USER:
       newState.currentUser = action.currentUser;
