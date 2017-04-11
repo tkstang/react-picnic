@@ -1,12 +1,12 @@
 import merge from 'lodash/merge';
-import { SELECT_SEARCH_TYPE } from '../actions';
+import { SELECT_ANIMAL } from '../actions';
 
-const SearchTypeReducer = (state = '', action) => {
+const AnimalReducer = (state = '', action) => {
   Object.freeze(state);
   let newState = merge({}, state);
 
   switch (action.type) {
-    case SELECT_SEARCH_TYPE:
+    case SELECT_ANIMAL:
       newState = action.selection;
       return newState;
     default:
@@ -14,4 +14,4 @@ const SearchTypeReducer = (state = '', action) => {
   }
 };
 
-export default SearchTypeReducer;
+export default AnimalReducer;
