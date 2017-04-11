@@ -8,7 +8,7 @@ import { selectSearchType } from '../../actions';
 
 const mapStateToProps = (state, ownProps) => {
   console.log('this is states', state);
-  return { searchTypeSelection: state.searchTypeSelection };
+  return { SearchTypeReducer: state.SearchTypeReducer };
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators({ selectSearchType }, dispatch);

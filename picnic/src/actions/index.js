@@ -1,3 +1,5 @@
+const SELECT_SEARCH_TYPE = 'SELECT_SEARCH_TYPE';
+
 const selectSearchType = (selection) => {
   console.log(selection);
   return {
@@ -11,4 +13,4 @@ const selectCheeseFirmness = selection => ({
   selection,
 });
 
-export { selectSearchType, selectCheeseFirmness };
+export { SELECT_SEARCH_TYPE, selectSearchType, selectCheeseFirmness };
