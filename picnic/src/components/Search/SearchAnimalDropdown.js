@@ -21,10 +21,10 @@ const SearchAnimalDropdown = (props) => {
         onChange={handleChange}
       >
         <option value="select">Select an Animal</option>
-        <option value="Cow">Cow</option>
-        <option value="Sheep">Sheep</option>
-        <option value="Goat">Goat</option>
-        <option value="Buffalo">Buffalo</option>
+        <option value="cow">Cow</option>
+        <option value="sheep">Sheep</option>
+        <option value="goat">Goat</option>
+        <option value="buffalo">Buffalo</option>
       </FormControl>
     </FormGroup>
   );
