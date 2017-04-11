@@ -30,7 +30,6 @@ class CheeseTable extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={this.props.getCheese('test')} />
         <Table className="table" >
           <thead>
             <tr>

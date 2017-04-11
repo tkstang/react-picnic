@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
 import renderIf from 'render-if';
+import { Link } from 'react-router-dom';
 import SearchTypeDropdown from './SearchTypeDropdown';
 import SearchAnimalDropdown from './SearchAnimalDropdown';
+import { getCheese } from '../../actions';
 
-const mapStateToProps = (state, ownProps) => {
-  console.log("hello from mapStateToProps", state);
-  return {selection: state.searchType, animal: state.animal }
-}
+const mapStateToProps = (state, ownProps) =>
+  // console.log("hello from mapStateToProps", state);
+   ({ selection: state.searchType, animal: state.animal });
+
+const mapDispatchToProps = dispatch => bindActionCreators({ getCheese }, dispatch);
 
 class Search extends Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    // this.props.getCheese
+    this.props.getCheese(this.props.animal, this.props.selection);
+  }
+
   render() {
-    console.log("state", this.props.selection);
+    console.log('state', this.props.selection);
     const byAnimal = renderIf(this.props.selection === 'animal');
     const isSearchReady = renderIf(this.props.animal !== '');
     return (
@@ -21,7 +35,7 @@ class Search extends Component {
           <Col xs={12}>
             <SearchTypeDropdown />
             {byAnimal(<SearchAnimalDropdown />)}
-            {isSearchReady(<Button>Search</Button>)}
+            {isSearchReady(<Link to="/results"><Button onClick={this.handleClick}>Search</Button></Link>)}
           </Col>
         </Row>
       </Grid>
@@ -29,5 +43,5 @@ class Search extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Search);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
 // export default Search;

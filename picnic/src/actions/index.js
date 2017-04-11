@@ -1,7 +1,13 @@
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 const SELECT_SEARCH_TYPE = 'SELECT_SEARCH_TYPE';
 const SELECT_ANIMAL = 'SELECT_ANIMAL';
+
+const mapStateToProps = (state, ownProps) => {
+  // console.log("hello from mapStateToProps", state);
+  return { selection: state.searchType }
+}
 
 const selectSearchType = selection =>
   // console.log(selection);
@@ -23,10 +29,10 @@ const selectCheeseFirmness = selection => ({
   selection,
 });
 
-function fetchCheese(query) {
+function fetchCheese(query, selection) {
   let API_URL = '';
 
-  if (query === 'animal') {
+  if (selection === 'animal' && query !== null) {
     API_URL = `http://cheeswhiz.herokuapp.com/api/cheese/animal/${query}`;
   }
 
@@ -50,11 +56,11 @@ function fetchCheese(query) {
 //   payload: this.props, //payload will be result of API call
 // });
 
-const getCheese = (query) => {
+const getCheese = (query, selection) => {
   return {
     type: 'GET_CHEESE',
-    payload: fetchCheese(query),
+    payload: fetchCheese(query, selection),
   };
 };
 
-export { SELECT_SEARCH_TYPE, SELECT_ANIMAL, selectSearchType, selectAnimal, selectCheeseFirmness, login, getCheese };
+export { SELECT_SEARCH_TYPE, SELECT_ANIMAL, selectSearchType, selectAnimal, selectCheeseFirmness, getCheese };
