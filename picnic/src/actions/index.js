@@ -1,11 +1,20 @@
 import axios from 'axios';
 
 const SELECT_SEARCH_TYPE = 'SELECT_SEARCH_TYPE';
+const SELECT_ANIMAL = 'SELECT_ANIMAL';
 
 const selectSearchType = (selection) => {
   console.log(selection);
   return {
     type: 'SELECT_SEARCH_TYPE',
+    selection,
+  };
+};
+
+const selectAnimal = (selection) => {
+  console.log(selection);
+  return {
+    type: 'SELECT_ANIMAL',
     selection,
   };
 };
@@ -37,4 +46,4 @@ const getCheese = (query) => {
   };
 };
 
-export { SELECT_SEARCH_TYPE, selectSearchType, selectCheeseFirmness, login, getCheese };
+export { SELECT_SEARCH_TYPE, SELECT_ANIMAL, selectSearchType, selectAnimal, selectCheeseFirmness, login, getCheese };

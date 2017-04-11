@@ -11,7 +11,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({ selectAnimal }, disp
 const SearchAnimalDropdown = (props) => {
   const handleChange = (e) => {
     e.preventDefault();
-    return props.selectSearchParam(e.target.value);
+    return props.selectAnimal(e.target.value);
   };
 
   return (
