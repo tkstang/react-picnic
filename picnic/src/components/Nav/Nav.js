@@ -6,7 +6,7 @@ import { logout } from '../../actions/session_actions';
 import './Nav.css';
 
 const mapStateToProps = state => ({
-  currentUser: state.session.currentUser,
+  currentUser: state.session,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -24,35 +24,39 @@ const userIsNull = () =>
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav pullRight>
+
         <NavItem className="NavItem" href="#"><Link to="/">Search</Link></NavItem>
-        <NavItem className="NavItem" href="#"><Link to="/signup">Sign Up</Link></NavItem>
-        <NavItem className="NavItem"  href="#"><Link to="/login">Log In</Link></NavItem>
+        {/* <NavItem eventKey={2} href="#"><Link to="/signup">Sign Up</Link></NavItem> */}
+        <NavItem className="NavItem" href="#"><Link to="/login">Log In</Link></NavItem>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
 );
 
-const userIsNotNull = (user, logout) =>
-(
-  <Navbar inverse collapseOnSelect>
-    <Navbar.Header>
-      <Navbar.Brand>
-        <a href="/">Picnic</a>
-      </Navbar.Brand>
+const userIsNotNull = (user, logOut) => {
+  console.log("user info", user.email);
+  return (
+    <Navbar className="Nav-bar" inverse collapseOnSelect>
+      <Navbar.Header>
+      <Nav pullLeft>
+        <NavItem className="NavItem" href="#"><Link to="/">React Picnic</Link></NavItem>
+      </Nav>
       <Navbar.Toggle />
-    </Navbar.Header>
-    <Navbar.Collapse>
-      <Nav pullRight>
-        <NavItem eventKey={1} href="/">Search</NavItem>
-        <NavItem eventKey={2} href="#">Favorites</NavItem>
-        <NavItem eventKey={3} href="#">Log Out</NavItem>
-      </Nav>
-    </Navbar.Collapse>
-  </Navbar>
-);
+      </Navbar.Header>
+      <Navbar.Collapse>
+        <Nav pullRight>
+          <NavItem>{user.email}
+          </NavItem>
+          <NavItem className="NavItem" href="#"><Link to="/">Search</Link></NavItem>
+          <NavItem className="NavItem" onClick={logout} href="#"><Link to="/">Log Out</Link></NavItem>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
+}
 
-const UserNav = ({ currentUser, logout }) => (
-  currentUser ? userIsNotNull(currentUser, logout) : userIsNull()
+const UserNav = ({ currentUser, logOut }) => (
+  currentUser.id !== null ? userIsNotNull(currentUser, logOut) : userIsNull()
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserNav);

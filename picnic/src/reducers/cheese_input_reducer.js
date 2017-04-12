@@ -1,16 +1,17 @@
 import merge from 'lodash/merge';
+import { CHEESE_INPUT } from '../actions';
 
-const SessionReducer = (state = { id: null }, action) => {
+const CheeseNameReducer = (state = '', action) => {
   Object.freeze(state);
   let newState = merge({}, state);
 
   switch (action.type) {
-    case 'LOGIN_USER_FULFILLED':
-      newState = action.payload;
+    case CHEESE_INPUT:
+      newState = action.input;
       return newState;
     default:
       return state;
   }
 };
 
-export default SessionReducer;
+export default CheeseNameReducer;

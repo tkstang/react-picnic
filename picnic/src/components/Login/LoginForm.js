@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import { login } from '../../actions/index';
 import { bindActionCreators } from 'redux';
 import { Table, Grid } from 'react-bootstrap';
 import './LoginForm.css';
 
 const mapDispatchToProps = dispatch => bindActionCreators({ login }, dispatch);
+
+const mapDispatchToProps = dispatch => {
+  console.log("this is dispatch", dispatch);
+  return bindActionCreators({ login }, dispatch);
+}
 
 class LoginForm extends Component {
   submit = (values) => {
@@ -31,8 +38,8 @@ class LoginForm extends Component {
   }
 }
 
-export default reduxForm({
-  form: 'LoginForm'})(LoginForm);
+export default connect(null, mapDispatchToProps)(reduxForm({
+  form: 'LoginForm'})(LoginForm));
 
 // const validate = (values) => {
 //   const errors = {};
