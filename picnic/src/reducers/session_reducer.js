@@ -8,6 +8,9 @@ const SessionReducer = (state = { id: null }, action) => {
     case 'LOGIN_USER_FULFILLED':
       newState = action.payload;
       return newState;
+    case 'LOGOUT_USER':
+      newState = { id: null };
+      return newState;
     default:
       return state;
   }
