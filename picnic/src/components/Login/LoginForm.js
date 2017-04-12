@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { login } from '../../actions/index';
 
-const mapDispatchToProps = dispatch => bindActionCreators({ login }, dispatch);
+const mapDispatchToProps = dispatch => {
+  console.log("this is dispatch", dispatch);
+  return bindActionCreators({ login }, dispatch);
+}
 
 class LoginForm extends Component {
   submit = (values) => {
     console.log('values', values);
-    login(values);
+    this.props.login(values);
   }
 
   render() {
@@ -26,7 +30,7 @@ class LoginForm extends Component {
   }
 }
 
-export default connect(mapDispatchToProps)(reduxForm({
+export default connect(null, mapDispatchToProps)(reduxForm({
   form: 'LoginForm'})(LoginForm));
 
 // const validate = (values) => {

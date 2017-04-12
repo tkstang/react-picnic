@@ -12,7 +12,7 @@ const SearchCheeseName = (props) => {
   const handleChange = (e) => {
     e.preventDefault();
     console.log(e.target.value);
-    return props.selectName(e.target.value);
+    return props.cheeseInput(e.target.value);
   };
 
   return (

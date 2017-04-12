@@ -28,13 +28,14 @@ class Search extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
+  handleClick() {
     if (this.props.animal !== '') {
       this.props.getCheese(this.props.animal, this.props.selection);
     } else if (this.props.firmness !== '') {
       this.props.getCheese(this.props.firmness, this.props.selection);
+    } else if (this.props.name !== ''){
+      this.props.getCheese(this.props.name, this.props.selection);
     }
-
   }
 
   render() {
