@@ -16,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
   return {selection: state.searchType, animal: state.animal, firmness: state.firmness }
 }
 
-class Search extends Component {
+export class Search extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);

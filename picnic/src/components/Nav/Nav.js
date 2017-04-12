@@ -17,9 +17,9 @@ const userIsNull = () =>
 (
   <Navbar className="Nav-bar" inverse collapseOnSelect>
     <Navbar.Header>
-      <Navbar.Brand>
-        <a href="/">Picnic</a>
-      </Navbar.Brand>
+      <Nav pullLeft>
+        <NavItem eventKey={1} href="#"><Link to="/">React Picnic</Link></NavItem>
+      </Nav>
       <Navbar.Toggle />
     </Navbar.Header>
     <Navbar.Collapse>

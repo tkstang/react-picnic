@@ -1,0 +1,41 @@
+exports[`Search snapshots 1`] = `
+<Grid
+  bsClass="container"
+  componentClass="div"
+  fluid={false}>
+  <Jumbotron
+    bsClass="jumbotron"
+    componentClass="div">
+    <h3>
+      Welcome to React Picnic!
+    </h3>
+    <br />
+    <p>
+      React Picnic is the internet\'s premiere way to search for cheese!  Please enjoy your stay and search away!
+    </p>
+  </Jumbotron>
+  <Row
+    bsClass="row"
+    componentClass="div">
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={12}>
+      <Connect(SearchTypeDropdown) />
+      <Link
+        replace={false}
+        to="/results">
+        <Button
+          active={false}
+          block={false}
+          bsClass="btn"
+          bsStyle="default"
+          disabled={false}
+          onClick={[Function]}>
+          Search
+        </Button>
+      </Link>
+    </Col>
+  </Row>
+</Grid>
+`;
