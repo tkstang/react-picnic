@@ -5,6 +5,7 @@ const SELECT_ANIMAL = 'SELECT_ANIMAL';
 const SELECT_FIRMNESS = 'SELECT_FIRMNESS';
 const CHEESE_INPUT = 'CHEESE_INPUT';
 const LOGIN_USER = 'LOGIN_USER';
+const LOGOUT_USER = 'LOGOUT_USER';
 
 const selectSearchType = (selection) => {
   return {
@@ -73,6 +74,13 @@ const login = (userInfo) => {
   };
 };
 
+const logout = () => {
+  console.log('here');
+  return {
+    type: 'LOGOUT_USER',
+  };
+};
+
 const getCheese = (query, selection) => {
   return {
     type: 'GET_CHEESE',
@@ -86,10 +94,12 @@ export {
   SELECT_FIRMNESS,
   CHEESE_INPUT,
   LOGIN_USER,
+  LOGOUT_USER,
   selectSearchType,
   selectAnimal,
   selectFirmness,
   cheeseInput,
   login,
+  logout,
   getCheese,
 };

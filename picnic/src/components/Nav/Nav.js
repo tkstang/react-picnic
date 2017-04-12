@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
@@ -9,9 +10,7 @@ const mapStateToProps = state => ({
   currentUser: state.session,
 });
 
-const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout()),
-});
+const mapDispatchToProps = dispatch => bindActionCreators({ logout }, dispatch);
 
 const userIsNull = () =>
 (
@@ -33,8 +32,7 @@ const userIsNull = () =>
   </Navbar>
 );
 
-const userIsNotNull = (user, logOut) => {
-  console.log("user info", user.email);
+const userIsNotNull = (user, logout) => {
   return (
     <Navbar className="Nav-bar" inverse collapseOnSelect>
       <Navbar.Header>
@@ -55,8 +53,8 @@ const userIsNotNull = (user, logOut) => {
   );
 }
 
-const UserNav = ({ currentUser, logOut }) => (
-  currentUser.id !== null ? userIsNotNull(currentUser, logOut) : userIsNull()
+const UserNav = ({ currentUser, logout }) => (
+  currentUser.id !== null ? userIsNotNull(currentUser, logout) : userIsNull()
 );
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserNav);
