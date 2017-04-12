@@ -18,15 +18,15 @@ const userIsNull = () =>
   <Navbar className="Nav-bar" inverse collapseOnSelect>
     <Navbar.Header>
       <Nav pullLeft>
-        <NavItem eventKey={1} href="#"><Link to="/">React Picnic</Link></NavItem>
+        <NavItem className="NavItem" href="#"><Link to="/">React Picnic</Link></NavItem>
       </Nav>
       <Navbar.Toggle />
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav pullRight>
-        <NavItem eventKey={1} href="#"><Link to="/">Search</Link></NavItem>
-        <NavItem eventKey={2} href="#"><Link to="/signup">Sign Up</Link></NavItem>
-        <NavItem eventKey={3} href="#"><Link to="/login">Log In</Link></NavItem>
+        <NavItem className="NavItem" href="#"><Link to="/">Search</Link></NavItem>
+        <NavItem className="NavItem" href="#"><Link to="/signup">Sign Up</Link></NavItem>
+        <NavItem className="NavItem"  href="#"><Link to="/login">Log In</Link></NavItem>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
