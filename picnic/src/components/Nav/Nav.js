@@ -44,7 +44,8 @@ const userIsNotNull = (user, logOut) => {
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav pullRight>
-          <NavItem>{user.email}</NavItem>
+          <NavItem>{user.email}
+          </NavItem>
           <NavItem href="#"><Link to="/">Search</Link></NavItem>
           <NavItem onClick={logout} href="#"><Link to="/">Log Out</Link></NavItem>
         </Nav>
