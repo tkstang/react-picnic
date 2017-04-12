@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { login } from '../../actions/index';
 import { bindActionCreators } from 'redux';
 import { Table, Grid } from 'react-bootstrap';
+import './LoginForm.css';
 
 const mapDispatchToProps = dispatch => bindActionCreators({ login }, dispatch);
 
@@ -22,16 +23,17 @@ class LoginForm extends Component {
   render() {
     const {handleSubmit} = this.props;
     return (
-      <Grid>
-        <form onSubmit={handleSubmit(this.submit)}>
-          <Field name="email" type="email" component="input" label="Email" />
-          <Field name="password" type="text" component="input" label="Password" />
+      <div className="wrapper">
+        <form className="form-signin" onSubmit={handleSubmit(this.submit)}>
+          <h3 className="form-signin-heading">Please login</h3>
+          <Field name="email" className="form-control" type="email" placeholder="Email address" component="input" label="Email" />
+          <Field name="password" className="form-control" type="text" placeholder="Password" component="input" label="Password" />
           <div>
             <button type="submit" >Submit</button>
             <button type="button">Clear Values</button>
           </div>
         </form>
-      </Grid>
+      </div>
     )
   }
 }

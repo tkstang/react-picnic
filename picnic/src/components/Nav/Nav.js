@@ -18,15 +18,16 @@ const userIsNull = () =>
   <Navbar className="Nav-bar" inverse collapseOnSelect>
     <Navbar.Header>
       <Nav pullLeft>
-        <NavItem eventKey={1} href="#"><Link to="/">React Picnic</Link></NavItem>
+        <NavItem className="NavItem" href="#"><Link to="/">React Picnic</Link></NavItem>
       </Nav>
       <Navbar.Toggle />
     </Navbar.Header>
     <Navbar.Collapse>
       <Nav pullRight>
-        <NavItem href="#"><Link to="/">Search</Link></NavItem>
+
+        <NavItem className="NavItem" href="#"><Link to="/">Search</Link></NavItem>
         {/* <NavItem eventKey={2} href="#"><Link to="/signup">Sign Up</Link></NavItem> */}
-        <NavItem href="#"><Link to="/login">Log In</Link></NavItem>
+        <NavItem className="NavItem" href="#"><Link to="/login">Log In</Link></NavItem>
       </Nav>
     </Navbar.Collapse>
   </Navbar>
@@ -37,17 +38,17 @@ const userIsNotNull = (user, logOut) => {
   return (
     <Navbar className="Nav-bar" inverse collapseOnSelect>
       <Navbar.Header>
-        <Navbar.Brand>
-          <a href="/">Picnic</a>
-        </Navbar.Brand>
-        <Navbar.Toggle />
+      <Nav pullLeft>
+        <NavItem className="NavItem" href="#"><Link to="/">React Picnic</Link></NavItem>
+      </Nav>
+      <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav pullRight>
           <NavItem>{user.email}
           </NavItem>
-          <NavItem href="#"><Link to="/">Search</Link></NavItem>
-          <NavItem onClick={logout} href="#"><Link to="/">Log Out</Link></NavItem>
+          <NavItem className="NavItem" href="#"><Link to="/">Search</Link></NavItem>
+          <NavItem className="NavItem" onClick={logout} href="#"><Link to="/">Log Out</Link></NavItem>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

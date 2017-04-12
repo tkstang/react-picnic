@@ -1,6 +1,11 @@
 .Nav-bar {
-  background-color: transparent;
-  color: ;
+  background-color: lightgrey;
+  color: black;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5em;
+}
+
+.NavItem {
+  color: white;
+
 }
