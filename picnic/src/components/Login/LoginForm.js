@@ -3,6 +3,10 @@ import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { login } from '../../actions/index';
+import { bindActionCreators } from 'redux';
+import { Table, Grid } from 'react-bootstrap';
+
+const mapDispatchToProps = dispatch => bindActionCreators({ login }, dispatch);
 
 const mapDispatchToProps = dispatch => {
   console.log("this is dispatch", dispatch);
@@ -18,14 +22,16 @@ class LoginForm extends Component {
   render() {
     const {handleSubmit} = this.props;
     return (
-      <form onSubmit={handleSubmit(this.submit)}>
-        <Field name="email" type="email" component="input" label="Email" />
-        <Field name="password" type="text" component="input" label="Password" />
-        <div>
-          <button type="submit" >Submit</button>
-          <button type="button">Clear Values</button>
-        </div>
-      </form>
+      <Grid>
+        <form onSubmit={handleSubmit(this.submit)}>
+          <Field name="email" type="email" component="input" label="Email" />
+          <Field name="password" type="text" component="input" label="Password" />
+          <div>
+            <button type="submit" >Submit</button>
+            <button type="button">Clear Values</button>
+          </div>
+        </form>
+      </Grid>
     )
   }
 }

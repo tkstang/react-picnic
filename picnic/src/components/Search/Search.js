@@ -22,7 +22,7 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-class Search extends Component {
+export class Search extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
